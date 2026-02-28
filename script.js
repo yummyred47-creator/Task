@@ -27,44 +27,42 @@ function toggleDirection() {
 const addCardBtn = document.getElementById('bt-addcard')
 const container = document.getElementById('container')
 const editContainer = document.getElementById('edit-container')
+const deleteContainer = document.getElementById('delete-container')
 const overlay = document.getElementById('overlay')
 const tbTitle = document.getElementById('tb-title')
 const tbContent = document.getElementById('tb-content')
 const btSave = document.getElementById('bt-save')
 const btCancel = document.getElementById('bt-cancel')
+const btConfirmDelete = document.getElementById('bt-confirm-delete')
+const btCancelDelete = document.getElementById('bt-cancel-delete')
 
 let cardCount = 1;
 let currentEditingCard = null;
+let currentDeletingCard = null;
 
 const closePopup = () => {
     editContainer.classList.remove('active')
+    deleteContainer.classList.remove('active')
     overlay.classList.remove('active')
     currentEditingCard = null;
+    currentDeletingCard = null;
 }
 
 addCardBtn.addEventListener('click', () => {
     const newcard = document.createElement('div')
     newcard.classList.add('card');
     newcard.innerHTML = `
-        <h2 class="card-title"> title${cardCount} </h2>
+        <h2 class="card-title"> title </h2>
         <p class="card-content"> นี่คือ Card ใหม่ที่ถูกสร้าง</p>
 
         <div class="bt-card-containe">
-            <button class="bt bt-view"> ดู </button>
             <button class="bt bt-edit"> แก้ไข </button>
+            <button class="bt bt-view"> เพิ่มเติม </button>
             <button class="bt bt-delete"> ลบ </button>
         </div>
     `;
 
     container.appendChild(newcard);
-    cardCount++;
-
-    const deleteBtn = newCard.querySelector('.delete-btn');
-  deleteBtn.addEventListener('click', function() {
-    newCard.remove(); 
-  });
-
-  container.appendChild(newCard);
 });
 
 container.addEventListener('click', (e) => {
@@ -78,6 +76,10 @@ container.addEventListener('click', (e) => {
 
         editContainer.classList.add('active');
         overlay.classList.add('active');
+    } else if (e.target.classList.contains('bt-delete')) {
+        currentDeletingCard = e.target.closest('.card');
+        deleteContainer.classList.add('active');
+        overlay.classList.add('active');
     }
 });
 
@@ -88,6 +90,15 @@ btSave.addEventListener('click', () => {
         closePopup();
     }
 });
+
+btConfirmDelete.addEventListener('click', () => {
+    if (currentDeletingCard) {
+        currentDeletingCard.remove();
+        closePopup();
+    }
+});
+
+btCancelDelete.addEventListener('click', closePopup);
 
 btCancel.addEventListener('click', closePopup);
 overlay.addEventListener('click', closePopup);

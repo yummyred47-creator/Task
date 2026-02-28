@@ -12,23 +12,39 @@
 
 .body {
   background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--background-color);
+  border-right: 2px solid var(--border-color);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.content-area {
+  flex-grow: 1;
   padding: min(50px, 7%);
 }
 
-.mainti {
-  text-align: center;
-  color: var(--font-color);
-}
-.mainbtt {
-  color: var(--font-color);  
-}
-
 .menu {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
-  gap: 10px;
-  height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .bt {
@@ -114,17 +130,16 @@
 
 .bt-card-containe {
   display: grid;
-  direction: rtl;
-  grid-template-columns: repeat(3, 2fr 1fr 1fr);
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   gap: 10px;
-  padding: 5px;
-  height: 50px;
+  padding: 10px;
+  height: 100px;
 }
 
 .container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   gap: 10px;
 }

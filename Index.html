@@ -9,20 +9,24 @@
 </head>
 
 <body class="body">
+  <div class="main-layout">
+    <aside class="sidebar">
+      <h2 class="mainti">Menu</h2>
+      <div class="menu">
+        <h4>เครื่องมือ</h4>
+        <button id="bt-addcard" class="bt"> เพิ่มCard </button>
+        <button class="bt" onclick="toggleDirection()"> สลับRow/Colume </button>
+        <button id="bt-themeswitch" class="bt"> เปลี่ยนTheme </button>
+        <h4>รายการ</h4>
+      </div>
+    </aside>
 
-
-  
-  <h1 class="mainti"> Main Title </h1>
-
-  <h3 class="mainbtt"> Button Test </h3>
-
-  <div class="menu">
-    <button class="bt" onclick="toggleDirection()"> เปลี่ยนเป็น row หรือ colume</button>
-    <button id="bt-themeswitch" class="bt"> เปลี่ยนสี </button>
-    <button id="bt-addcard" class="bt"> เพิ่ม card </button>
-  </div>
-
-  <div id="container" class="container">
+    <main class="content-area">
+      <h1 class="mainti"> Main Title </h1>
+      <h3 class="mainbtt"> Button Test </h3>
+      <div id="container" class="container">
+      </div>
+    </main>
   </div>
      
   <div id="overlay" class="overlay"></div>
@@ -33,6 +37,15 @@
     <div class="edit-actions">
       <button id="bt-save" class="bt"> บันทึก </button>
       <button id="bt-cancel" class="bt"> ยกเลิก </button>
+    </div>
+  </div>
+
+  <div id="delete-container" class="edit-container">
+    <h1 class="mainti"> ยืนยันการลบ </h1>
+    <p class="mainti" style="font-size: 1rem;"> คุณแน่ใจหรือไม่ว่าต้องการลบ Card นี้? </p>
+    <div class="edit-actions">
+      <button id="bt-confirm-delete" class="bt" style="border-color: #ff4d4d; color: #ff4d4d;"> ลบ </button>
+      <button id="bt-cancel-delete" class="bt"> ยกเลิก </button>
     </div>
   </div>
 
