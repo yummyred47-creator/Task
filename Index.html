@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body class="body">
+
+
+  
+  <h1 class="mainti"> Main Title </h1>
+
+  <h3 class="mainbtt"> Button Test </h3>
+
+  <div class="menu">
+    <button class="bt" onclick="toggleDirection()"> เปลี่ยนเป็น row หรือ colume</button>
+    <button id="bt-themeswitch" class="bt"> เปลี่ยนสี </button>
+    <button id="bt-addcard" class="bt"> เพิ่ม card </button>
+  </div>
+
+  <div id="container" class="container">
+  </div>
+     
+  <div id="overlay" class="overlay"></div>
+  <div id="edit-container" class="edit-container">
+    <h1 class="mainti"> แก้ไข </h1>  
+    <input title="title" id="tb-title" class="tb-title" placeholder="หัวข้อ"/>
+    <input content="content" id="tb-content" class="tb-content" placeholder="เนื้อหา"/>
+    <div class="edit-actions">
+      <button id="bt-save" class="bt"> บันทึก </button>
+      <button id="bt-cancel" class="bt"> ยกเลิก </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
